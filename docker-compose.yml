@@ -1,0 +1,42 @@
+# Central Volumes Image
+volumes:
+  image: tianon/true
+  volumes:
+    # Directus
+    - "./logs/:/app/api/logs"
+    - "./media/:/app/media/"
+
+    # DB
+    - "./db/:/var/lib/mysql"
+
+# Central NGINX-Proxy
+proxy:
+  image: jwilder/nginx-proxy
+  ports:
+    - "80:80"
+  volumes:
+    - "/var/run/docker.sock:/tmp/docker.sock:ro"
+  restart: always
+
+mysql:
+  image: mysql:5.5
+  environment:
+    - MYSQL_ROOT_PASSWORD=Un1c0rns_4r3_4w3s0m3
+    - MYSQL_DATABASE=directus
+    - MYSQL_USER=directus
+    - MYSQL_PASSWORD=Un1c0rn!
+  volumes_from:
+    - "volumes"
+  restart: always
+
+directus:
+  image: beevelop/directus
+  environment:
+    - VIRTUAL_HOST=directus.example.com
+  links:
+    - mysql:mysql
+  expose:
+    - "80"
+  volumes_from:
+    - "volumes"
+  restart: always
