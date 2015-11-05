@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -yq git \
 
 WORKDIR /var/www/html
 
-RUN curl -sL 'https://github.com/RNGR/Directus/tarball/master' | tar xz -C . --strip-components=1 && ls -la && \
+RUN curl -sL 'https://github.com/RNGR/Directus/tarball/master' | tar xz -C . --strip-components=1 && \
     cd api && curl -sL 'https://getcomposer.org/installer' | php && \
     php composer.phar install --no-dev && \
     chown -R www-data:www-data /var/www/html && \
