@@ -34,7 +34,7 @@ RUN apt-get update && apt-get install -yq git \
     apt-get autoremove -y && \
     apt-get clean
 
-COPY init.php /var/www/html/installation
+COPY init.php /var/www/html/installation/
 
 EXPOSE 80
 
