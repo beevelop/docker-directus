@@ -3,8 +3,8 @@ volumes:
   image: tianon/true
   volumes:
     # Directus
-    - "./logs/:/app/api/logs"
-    - "./media/:/app/media/"
+    - "./logs/:/var/www/html/api/logs"
+    - "./media/:/var/www/html/media"
 
     # DB
     - "./db/:/var/lib/mysql"
@@ -25,12 +25,6 @@ mysql:
     - MYSQL_DATABASE=directus
     - MYSQL_USER=directus
     - MYSQL_PASSWORD=Un1c0rn!
-    
-    - ADMIN_EMAIL=directus@example.com
-    - SITE_NAME=Dockerectus
-    - ADMIN_PASSWORD=Un1c0rn
-    
-    - SAMPLE_DATA=True
   volumes_from:
     - "volumes"
   restart: always
@@ -39,10 +33,14 @@ directus:
   image: beevelop/directus
   environment:
     - VIRTUAL_HOST=directus.example.com
+    
+    - ADMIN_EMAIL=directus@example.com
+    - SITE_NAME=Dockerectus
+    - ADMIN_PASSWORD=Un1c0rn
+    
+    - SAMPLE_DATA=True
   links:
     - mysql:mysql
-  expose:
-    - "80"
   volumes_from:
     - "volumes"
   restart: always
