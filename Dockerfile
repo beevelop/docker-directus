@@ -36,4 +36,6 @@ RUN apt-get update && apt-get install -yq git \
 
 COPY init.php /var/www/html/installation
 
+EXPOSE 80
+
 CMD /opt/init.sh
