@@ -25,6 +25,12 @@ mysql:
     - MYSQL_DATABASE=directus
     - MYSQL_USER=directus
     - MYSQL_PASSWORD=Un1c0rn!
+    
+    - ADMIN_EMAIL=directus@example.com
+    - SITE_NAME=Dockerectus
+    - ADMIN_PASSWORD=Un1c0rn
+    
+    - SAMPLE_DATA=True
   volumes_from:
     - "volumes"
   restart: always
