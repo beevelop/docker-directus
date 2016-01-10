@@ -33,7 +33,7 @@ directus:
   image: beevelop/directus
   environment:
     - VIRTUAL_HOST=directus.example.com
-    
+    - SITE_URL=http://directus.example.com
     - ADMIN_EMAIL=directus@example.com
     - SITE_NAME=Dockerectus
     - ADMIN_PASSWORD=Un1c0rn
