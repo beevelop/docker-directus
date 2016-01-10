@@ -8,10 +8,15 @@ DB_PASS=${DB_PASS:-$MYSQL_ENV_MYSQL_PASSWORD}
 
 if [ ! -f /var/www/html/api/config.php ] && [ -n "$DB_HOST" ]; then
     echo Running autoconfig script...
-    chmod +x /var/www/html/installation/init.php
     sync # see: https://github.com/docker/docker/issues/9547
-    cd /var/www/html/installation/
-    ./init.php
+    cd /var/www/html/bin/
+
+    # Write config file with DB envs
+    ./directus config --host=$DB_HOST --name=$DB_NAME --user=$DB_USER --pass=$DB_PASS
+    # Initialize database
+    ./directus database
+    # Setup Admin
+    ./directus install -e=$ADMIN_EMAIL -p=$ADMIN_PASSWORD -t=$SITE_NAME
 fi
 
 apache2-foreground
