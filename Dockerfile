@@ -7,7 +7,8 @@ COPY init.sh /opt/
 
 ENV ADMIN_EMAIL=admin@localhost \
     SITE_NAME=Directus \
-    ADMIN_PASSWORD=Un1c0rn
+    ADMIN_PASSWORD=Un1c0rn \
+    DIRECTUS_VERSION=6.0.5
 
 RUN apt-get update && apt-get install -yq git \
         libfreetype6-dev \
@@ -21,7 +22,7 @@ RUN apt-get update && apt-get install -yq git \
     pecl install imagick-beta && \
     docker-php-ext-enable imagick && \
     
-    curl -sL 'https://github.com/RNGR/Directus/tarball/master' | tar xz -C . --strip-components=1 && \
+    curl -sL "https://api.github.com/repos/directus/directus/tarball/${DIRECTUS_VERSION}" | tar xz -C . --strip-components=1 && \
     cd api && curl -sL 'https://getcomposer.org/installer' | php && \
     php composer.phar install --no-dev && \
     chown -R www-data:www-data /var/www/html && \
