@@ -24,7 +24,7 @@ mysql:
     - MYSQL_ROOT_PASSWORD=Un1c0rns_4r3_4w3s0m3
     - MYSQL_DATABASE=directus
     - MYSQL_USER=directus
-    - MYSQL_PASSWORD=Un1c0rn!
+    - MYSQL_PASSWORD=Un1c0rn
   volumes_from:
     - "volumes"
   restart: always
@@ -33,12 +33,9 @@ directus:
   image: beevelop/directus
   environment:
     - VIRTUAL_HOST=directus.example.com
-    - SITE_URL=http://directus.example.com
     - ADMIN_EMAIL=directus@example.com
     - SITE_NAME=Dockerectus
     - ADMIN_PASSWORD=Un1c0rn
-    
-    - SAMPLE_DATA=True
   links:
     - mysql:mysql
   volumes_from:
