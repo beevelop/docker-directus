@@ -27,6 +27,15 @@ $_SESSION['site_name'] = $site_name;
 $_SESSION['password'] = $admin_password;
 $_SESSION['directus_path'] = '/';
 
+$abspath = str_replace('\\', '/', dirname( dirname(__FILE__) ) . '/');
+$site_url = getenv('SITE_URL') . $_SESSION['directus_path'];
+$_SESSION['default_dest'] = $abspath.'media/';
+$_SESSION['default_url'] = $site_url.'media/';
+$_SESSION['thumb_dest'] = $abspath.'media/thumbs/';
+$_SESSION['thumb_url'] = $site_url.'media/thumbs/';
+$_SESSION['temp_dest'] = $abspath.'media/temp/';
+$_SESSION['temp_url'] = $site_url.'media/temp/';
+
 require('/var/www/html/installation/query.php');
 $setupResponse = $main->execute(array('', 'db:setup'));
 $migrateResponse = $main->execute(array('', 'db:migrate'));
