@@ -3,23 +3,46 @@
 [![ImageLayer](https://badge.imagelayers.io/beevelop/directus:latest.svg)](https://imagelayers.io/?images=beevelop/directus:latest)
 [![Beevelop](https://links.beevelop.com/honey-badge)](https://beevelop.com)
 
-# directus
+# [Directus](https://github.com/directus/directus) containerized
+
+## Quickstart (recommended)
+1. `git clone https://github.com/beevelop/docker-directus && cd docker-directus`
+2. Adapt `docker-compose.yml` to your needs
+3. Run using `docker-compose up`
 
 ----
+
 ### Pull from Docker Hub
 ```
 docker pull beevelop/directus:latest
 ```
 
-### Build from GitHub
+### Or build from GitHub
 ```
 docker build -t beevelop/directus github.com/beevelop/docker-directus
 ```
 
-### Run image
+### Then run image
 ```
-docker run -it beevelop/directus bash
+# Start the mysql database
+docker run -e MYSQL_ROOT_PASSWORD=Un1c0rns_4r3_4w3s0m3 \
+          -e MYSQL_DATABASE=directus -e MYSQL_USER=directus \
+          -e MYSQL_PASSWORD=Un1c0rn \
+          -v `pwd`/db/:/var/lib/mysql/ \
+          --name mysql -d mysql:5.5
+
+# Start directus
+docker run -e ADMIN_EMAIL=directus@example.com \
+           -e SITE_NAME=Dockerectus \
+           -e ADMIN_PASSWORD=Un1c0rn \
+           -v `pwd`/logs/:/var/www/html/api/logs \
+           -v `pwd`/media/:/var/www/html/media \
+           --link mysql:mysql \
+           -p 8080:80 \
+           --name directus -d beevelop/directus
 ```
+
+You should the be able to access your Directus installation at **http://YOUR_HOST:8080** (login with `directus@example.com:Un1c0rn`).
 
 ### Use as base image
 ```Dockerfile
