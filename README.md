@@ -5,6 +5,8 @@
 
 # [Directus](https://github.com/directus/directus) containerized
 
+> Directus is an awesome database GUI that provides a feature-rich environment for rapid development and management of custom database schemas.
+
 ## Quickstart (recommended)
 1. `git clone https://github.com/beevelop/docker-directus && cd docker-directus`
 2. Adapt `docker-compose.yml` to your needs
@@ -23,7 +25,7 @@ docker build -t beevelop/directus github.com/beevelop/docker-directus
 ```
 
 ### Then run image
-```
+```bash
 # Start the mysql database
 docker run -e MYSQL_ROOT_PASSWORD=Un1c0rns_4r3_4w3s0m3 \
           -e MYSQL_DATABASE=directus -e MYSQL_USER=directus \
