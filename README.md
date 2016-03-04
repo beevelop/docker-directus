@@ -3,6 +3,7 @@
 [![ImageLayers Layers](https://shields.beevelop.com/imagelayers/layers/beevelop/directus/latest.svg?style=flat-square)](https://links.beevelop.com/d-directus)
 [![ImageLayers Size](https://shields.beevelop.com/imagelayers/image-size/beevelop/directus/latest.svg?style=flat-square)](https://links.beevelop.com/d-directus)
 [![GitHub release](https://shields.beevelop.com/github/release/beevelop/docker-directus.svg?style=flat-square)](https://github.com/beevelop/docker-directus/releases)
+![Badges](https://shields.beevelop.com/badge/badges-7-brightgreen.svg?style=flat-square)
 [![Beevelop](https://links.beevelop.com/honey-badge)](https://beevelop.com)
 
 # [Directus](https://github.com/directus/directus) containerized
