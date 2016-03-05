@@ -6,6 +6,6 @@ services:
 script:
   - docker build -t directus .
   - docker-compose up -d
-  - sleep 21
-  - docker exec dockerdirectus_directus_1 /bin/sh -c "apt-get update && apt-get install curl -y --no-install-recommends && curl -f localhost:80"
+  - sleep 42
+  - docker exec dockerdirectus_directus_1 /bin/sh -c "curl -f localhost:80"
   - docker logs dockerdirectus_directus_1
