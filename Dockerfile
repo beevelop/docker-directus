@@ -8,7 +8,7 @@ COPY init.sh /opt/
 ENV ADMIN_EMAIL=admin@localhost \
     SITE_NAME=Directus \
     ADMIN_PASSWORD=Un1c0rn \
-    DIRECTUS_VERSION=6.3.0
+    DIRECTUS_VERSION=master
 
 RUN apt-get update && apt-get install -yq git \
         libfreetype6-dev \
@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -yq git \
     curl -sL "https://api.github.com/repos/directus/directus/tarball/${DIRECTUS_VERSION}" | tar xz -C . --strip-components=1 && \
     curl -sL 'https://getcomposer.org/installer' | php && \
     php composer.phar install --no-dev --no-progress --prefer-dist && \
-    mkdir -p /var/www/html/media && \
+    mkdir -p /var/www/html/media /var/www/html/logs && \
     chown -R www-data:www-data /var/www/html && \
     a2enmod rewrite && \
 
