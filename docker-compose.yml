@@ -30,7 +30,7 @@ mysql:
   restart: always
 
 directus:
-  image: beevelop/directus
+  build: .
   environment:
     - VIRTUAL_HOST=directus.example.com
     - ADMIN_EMAIL=directus@example.com
