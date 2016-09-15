@@ -16,14 +16,15 @@ done
 if [ ! -f /var/www/html/api/config.php ] && [ -n "$DB_HOST" ]; then
     echo Running autoconfig script...
     sync # see: https://github.com/docker/docker/issues/9547
+
     cd /var/www/html/bin/
 
     # Write config file with DB envs
-    ./directus config --host=$DB_HOST --name=$DB_NAME --user=$DB_USER --pass=$DB_PASS
+    ./directus install:config -h "$DB_HOST" -n "$DB_NAME" -u "$DB_USER" -p "$DB_PASS"
     # Initialize database
-    ./directus database
+    ./directus install:database
     # Setup Admin
-    ./directus install -e=$ADMIN_EMAIL -p=$ADMIN_PASSWORD -t=$SITE_NAME
+    ./directus install:install -e "$ADMIN_EMAIL" -p "$ADMIN_PASSWORD" -t "$SITE_NAME"
 fi
 
 apache2-foreground
