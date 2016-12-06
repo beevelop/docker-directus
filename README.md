@@ -53,3 +53,7 @@ You should the be able to access your Directus installation at **http://YOUR_HOS
 ```Dockerfile
 FROM beevelop/directus:latest
 ```
+
+----
+
+![One does not simply use latest](https://i.imgflip.com/1fgwxr.jpg)
