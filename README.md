@@ -1,8 +1,8 @@
 [![Travis](https://shields.beevelop.com/travis/beevelop/docker-directus.svg?style=flat-square)](https://travis-ci.org/beevelop/docker-directus)
-[![Docker Pulls](https://shields.beevelop.com/docker/pulls/beevelop/directus.svg?style=flat-square)](https://links.beevelop.com/d-directus)
-[![ImageLayers Layers](https://shields.beevelop.com/imagelayers/layers/beevelop/directus/latest.svg?style=flat-square)](https://links.beevelop.com/d-directus)
-[![ImageLayers Size](https://shields.beevelop.com/imagelayers/image-size/beevelop/directus/latest.svg?style=flat-square)](https://links.beevelop.com/d-directus)
-[![GitHub release](https://shields.beevelop.com/github/release/beevelop/docker-directus.svg?style=flat-square)](https://github.com/beevelop/docker-directus/releases)
+[![Pulls](https://shields.beevelop.com/docker/pulls/beevelop/directus.svg?style=flat-square)](https://links.beevelop.com/d-directus)
+[![Layers](https://shields.beevelop.com/docker/image/layers/beevelop/directus/latest.svg?style=flat-square)](https://links.beevelop.com/d-directus)
+[![Size](https://shields.beevelop.com/docker/image/size/beevelop/directus/latest.svg?style=flat-square)](https://links.beevelop.com/d-directus)
+[![Release](https://shields.beevelop.com/github/release/beevelop/docker-directus.svg?style=flat-square)](https://github.com/beevelop/docker-directus/releases)
 ![Badges](https://shields.beevelop.com/badge/badges-7-brightgreen.svg?style=flat-square)
 [![Beevelop](https://links.beevelop.com/honey-badge)](https://beevelop.com)
 
