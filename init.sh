@@ -20,7 +20,7 @@ if [ ! -f /var/www/html/api/config.php ] && [ -n "$DB_HOST" ]; then
     cd /var/www/html/bin/
 
     # Write config file with DB envs
-    ./directus install:config -h "$DB_HOST" -n "$DB_NAME" -u "$DB_USER" -p "$DB_PASS"
+    ./directus install:config -h "$DB_HOST:$DB_PORT" -n "$DB_NAME" -u "$DB_USER" -p "$DB_PASS"
     # Initialize database
     ./directus install:database
     # Setup Admin
