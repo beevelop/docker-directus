@@ -8,7 +8,7 @@ COPY init.sh /opt/
 ENV ADMIN_EMAIL=admin@localhost \
     SITE_NAME=Directus \
     ADMIN_PASSWORD=Un1c0rn \
-    DIRECTUS_VERSION=6.4.0-rc.1
+    DIRECTUS_VERSION=6.4.0
 
 RUN apt-get update && apt-get install -yq git \
         libfreetype6-dev \
