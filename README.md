@@ -41,7 +41,7 @@ docker run -e ADMIN_EMAIL=directus@example.com \
            -e SITE_NAME=Dockerectus \
            -e ADMIN_PASSWORD=Un1c0rn \
            -v `pwd`/logs/:/var/www/html/api/logs \
-           -v `pwd`/media/:/var/www/html/media \
+           -v `pwd`/media/:/var/www/html/storage/uploads \
            --link mysql:mysql \
            -p 8080:80 \
            --name directus -d beevelop/directus
