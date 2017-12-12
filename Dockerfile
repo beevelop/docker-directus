@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -yq git \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
         netcat && \
     apt-get install -yq libmagickwand-dev --no-install-recommends && \
     docker-php-ext-install iconv mcrypt && \
