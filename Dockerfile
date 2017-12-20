@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -yq git \
         libpng-dev \
         netcat && \
     apt-get install -yq libmagickwand-dev --no-install-recommends && \
-    docker-php-ext-configure mcrypt && \
-    docker-php-ext-install iconv mcrypt && \
+    docker-php-ext-install iconv && \
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
     docker-php-ext-install gd mysqli pdo pdo_mysql && \
     pecl install imagick-beta && \
